@@ -39,8 +39,8 @@ class ImagePreprocessor:
 preprocessor = ImagePreprocessor(target_size=128, crop_size=128)
 
 # Muat model dan personality dataframe
-model = load_model('model/model.h5')  # Ganti dengan path ke file model Anda
-personality_df = pd.read_csv('model/personality.csv')  # Pastikan file personality.csv tersedia
+model = load_model('https://huggingface.co/blogmilx/fingerprint/resolve/main/model.h5')  # Ganti dengan path ke file model Anda
+personality_df = pd.read_csv('https://huggingface.co/datasets/blogmilx/fingerprint/raw/main/personality.csv')  # Pastikan file personality.csv tersedia
 
 # Buat dictionary untuk mapping id ke target dan deskripsi
 id_to_target = pd.Series(personality_df.target.values, index=personality_df.id).to_dict()
