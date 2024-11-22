@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KarakterKu - Analisis Karakter Berdasarkan Sidik Jari</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed d-flex align-items-center justify-content-center" style="z-index: 1050; top: 0; left: 0;">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top px-0">
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                <a href="/" class="navbar-brand ms-3">
+                    <h1 class="text-primary display-5">KarakterKu</h1>
+                </a>
+                <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="/" class="nav-item nav-link">Home</a>
+                        <a href="/karakter" class="nav-item nav-link active">About</a>
+                    </div>
+                    <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
+                        <a href="/input" class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3">Lihat Kepribadian</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Intro Start -->
+    <div>
+        <style>
+            .cover {
+                height: 800px;
+                position: relative;
+                overflow: hidden;
+            }
+            .cover img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.6;
+                mix-blend-mode: multiply;
+            }
+            .cover .mask {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255, 215, 0, 0.2);
+                backdrop-filter: blur(5px);
+            }
+            .avatar img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .header-bio h2 {
+                font-size: 2rem;
+                margin-bottom: 5px;
+            }
+            .header-bio p {
+                font-size: 1.1rem;
+                color: #0a0a0a;
+            }
+            .header-social .nav-link {
+                color: #ffffff;
+                font-size: 1.5rem;
+                transition: color 0.3s;
+            }
+            .header-social .nav-link:hover {
+                color: #ffc107;
+            }
+            .btn-outline-light, .btn-info {
+                border-radius: 30px;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        </style>
+
+        <div class="cover">
+            <img src="https://i.pinimg.com/1200x/82/7a/4e/827a4e805a2072b20e7efb3650b8a6ce.jpg" alt="Cover Image">
+            <div class="mask">
+                <div class="text-center">
+                    <div class="header-bio mt-3">
+                        <h2 class="h1"><b>Penentuan Karakter Anak Melalui Sidik Jari Dengan Algoritma </b></h2>
+                        <h2 class="h1"><b>Convolutional Neural Network (CNN)</b></h2> 
+                        <h3>Pahwana Br Sinulingga - 201402013</h3>
+                    </div>
+                    <div class="avatar p-2 mb-3">
+                        <img class="img-thumbnail shadow-2-strong" src="https://i.pinimg.com/564x/77/a8/b7/77a8b7a2c50e8d60d7a870d93e7c7c2b.jpg" alt="Avatar">
+                    </div>
+                    <div class="header-bio mt-3">
+                        <h4>PROGRAM STUDI S1 TEKNOLOGI INFORMASI<br>
+                        FAKULTAS ILMU KOMPUTER DAN TEKNOLOGI INFORMASI<br>
+                        UNIVERSITAS SUMATERA UTARA<br>
+                        MEDAN<br>
+                        2024</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Intro End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/lightbox/js/lightbox.min.js') }}"></script>
+    
+    <!-- Template Javascript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

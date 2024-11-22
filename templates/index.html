@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>KarakterKu - Analisis Karakter Berdasarkan Sidik Jari</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top px-0">
+            <div class="container px-0">
+                <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                    <a href="/" class="navbar-brand ms-3">
+                        <h1 class="text-primary display-5">KarakterKu</h1>
+                    </a>
+                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                        <div class="navbar-nav ms-auto">
+                            <a href="/" class="nav-item nav-link active">Home</a>
+                            <a href="/karakter" class="nav-item nav-link">About</a>
+                        </div>
+                        <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
+                            <a href="/input" class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3">Lihat Kepribadian</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+        
+       <!-- Carousel Start -->
+        <div class="container-fluid carousel-header vh-100 px-0">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img src="https://storage.nu.or.id/storage/post/16_9/mid/mendidik-anak-era-digital_1662105088.webp" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h1 class="display-1 text-capitalize text-white mb-4">KarakterKu</h1>
+                                <p class="mb-5 fs-5">Mengenali karakter serta potensi anak sejak dini sehingga dapat memberikan dukungan dan bimbingan yang tepat dalam pengembangan diri anak.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="/input">Lihat Kepribadian</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://womenpedia.id/wp-content/uploads/2024/01/IMG_8733.jpeg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h1 class="display-1 text-capitalize text-white mb-4">KarakterKu</h1>
+                                <p class="mb-5 fs-5">Pemahaman lebih mendalam sehingga dapat mengarahkan anak menuju kegiatan dan lingkungan yang mendukung pertumbuhannya. 
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="/input">Lihat Kepribadian</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/1200x/82/7a/4e/827a4e805a2072b20e7efb3650b8a6ce.jpg" class="img-fluid" alt="Image">
+                        <div class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h1 class="display-1 text-capitalize text-white mb-4">KarakterKu</h1>
+                                <p class="mb-5 fs-5">Sistem digital yang dapat menganalisis karakter anak berdasarkan sidik jari.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="/input">Lihat Kepribadian</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Services Start -->
+        <div class="container-fluid service py-5 bg-light">
+            <style>
+                .service-item {
+                    text-align: center;
+                }
+                .service-image {
+                    height: 200px; /* Tinggi seragam untuk semua gambar */
+                    object-fit: cover; /* Memastikan gambar proporsional */
+                    width: 100%; /* Lebar penuh kolom */
+                }
+                .service-link a {
+                    display: block;
+                    margin-top: 15px;
+                    color: #000;
+                    text-decoration: none;
+                }
+            </style>
+        
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5" style="max-width: 800px;">
+                    <h5 class="text-uppercase text-primary">Analisis Karakter</h5>
+                    <h1 class="mb-0">Karakter berdasarkan jenis sidik jari</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="row g-4 d-flex justify-content-center" style="max-width: 140%;">
+                        <div class="col-md-6 col-lg-6 col-xl-2">
+                            <div class="service-item">
+                                <img src="https://i.pinimg.com/736x/5c/15/1d/5c151d70d4fd0017d22dc012fbcaaa83.jpg" class="service-image" alt="Image">
+                                <div class="service-link">
+                                    <a href="#" class="h4 mb-0">Arch</a>
+                                </div>
+                            </div>
+                            <p class="my-4">Memiliki sifat teratur, teliti, disiplin, dan lebih menyukai gaya hidup sederhana, serta berfokus pada tugas-tugas intelektual dan seni, meskipun kurang peka terhadap emosi dan ide baru.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-2">
+                            <div class="service-item">
+                                <img src="https://i.pinimg.com/736x/76/dc/6d/76dc6d003b47a5c7c991a6df3bd20608.jpg" class="service-image" alt="Image">
+                                <div class="service-link">
+                                    <a href="#" class="h4 mb-0">Tentarch</a>
+                                </div>
+                            </div>
+                            <p class="my-4">Mudah terpengaruh emosi, namun memiliki nilai yang kuat, mudah beradaptasi, menghargai stabilitas, percaya diri, dan sulit dimanipulasi, cocok untuk peran manajerial.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-2">
+                            <div class="service-item">
+                                <img src="https://i.pinimg.com/736x/2d/22/00/2d22004139b33cd4c8f5dda8d93d7495.jpg" class="service-image" alt="Image">
+                                <div class="service-link">
+                                    <a href="#" class="h4 mb-0">Left Loop</a>
+                                </div>
+                            </div>
+                            <p class="my-4">Orang yang kreatif, suka belajar mandiri, mudah bosan, dan gemar mencari pengalaman baru. Mereka cocok bekerja di bidang kreatif atau pekerjaan fleksibel.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-2">
+                            <div class="service-item">
+                                <img src="https://i.pinimg.com/736x/ab/f5/1d/abf51dae2d39076740c592f6ff631a0f.jpg" class="service-image" alt="Image">
+                                <div class="service-link">
+                                    <a href="#" class="h4 mb-0">Right Loop</a>
+                                </div>
+                            </div>
+                            <p class="my-4">Orang yang terbuka pada gagasan baru, dan cocok untuk profesi seperti manajer atau pendidik, di mana mereka dapat menggunakan keterampilan komunikasi dan manajemen ide.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-2">
+                            <div class="service-item">
+                                <img src="https://i.pinimg.com/736x/f6/5f/14/f65f14421cff4de0a3282d9a6193354f.jpg" class="service-image" alt="Image">
+                                <div class="service-link">
+                                    <a href="#" class="h4 mb-0">Whorl</a>
+                                </div>
+                            </div>
+                            <p class="my-4">Mencerminkan karakter kuat dan cerdas, dengan preferensi pada pekerjaan kreatif, teknis, dan dinamis, serta kemampuan berbicara yang efektif sesuai norma politik.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="/input">Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Services End -->
+
+
+        <!-- Volunteers Start -->
+        <div class="container-fluid volunteer py-5 mt-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="volunteer-img">
+                                    <img src="https://th.bing.com/th/id/OIP.YQ_0xcZxM1QT4W6nhET_GAHaE8?rs=1&pid=ImgDetMain" class="img-fluid w-100" alt="Image">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="volunteer-img">
+                                    <img src="https://klubwanita.com/wp-content/uploads/2019/09/cara-mendidik-anak-usia-2-tahun.jpg" class="img-fluid w-100" alt="Image">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="volunteer-img">
+                                    <img src="https://4.bp.blogspot.com/-2RjJ9ZdDnl0/XGtqIN7acLI/AAAAAAAAAbk/gYsMDl30GHouOrm33rUnZpLI67UlPr3gACK4BGAYYCw/s1600/Mendidik-Anak-Sesuai-Ajaran-Islam.jpg" class="img-fluid w-100" alt="Image">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="volunteer-img">
+                                    <img src="https://radarbanyumas.disway.id/upload/d785ea4d4fc0053acece13bbe99633e2.jpg" class="img-fluid w-100" alt="Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <h1 class="mb-4">Lihat kepribadianmu sejak dini</h1>
+                        <p class="mb-4">Manfaat yang dapat kamu rasakan
+                        </p>
+                        <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> Menyediakan informasi bagi orang tua mengenai potensi, minat, atau bakat anak yang dapat diidentifikasi sejak dini melalui pola sidik jari.</p>
+                        <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> Mempermudah akses terhadap analisis karakter anak melalui antarmuka aplikasi, sehingga hasil analisis dapat diakses dan dipahami dengan lebih mudah oleh orang tua atau pengguna.</p>
+                        <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> Hasil analisis secara informatif, memfasilitasi pemahaman yang lebih baik tentang hasil dari analisis sidik jari.</p>
+                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="/input">Lihat Kepribadian</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Volunteers End -->
+
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='lib/lightbox/js/lightbox.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+        
+
+        <!-- Template Javascript -->
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    </body>
+
+</html>
