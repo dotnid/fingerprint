@@ -5,6 +5,7 @@ from tensorflow.keras.models import load_model
 import os
 import pandas as pd
 import subprocess
+import time
 
 # Inisialisasi aplikasi Flask
 app = Flask(__name__)
@@ -96,9 +97,28 @@ def predict():
             return jsonify({'error': str(e)}), 500
 
     return jsonify({'error': 'File upload failed'}), 400
+# Function to get the ngrok public URL
+def get_ngrok_url():
+    # Run ngrok in a subprocess and expose the Flask app on port 5000
+    ngrok_process = subprocess.Popen(["ngrok", "http", "5000"])
 
-# Start ngrok in a subprocess
-subprocess.Popen(["ngrok", "http", "5000"])
+    # Give ngrok a moment to start and generate a public URL
+    time.sleep(2)
+
+    # Retrieve the ngrok URL by querying the ngrok API
+    try:
+        import requests
+        url = "http://localhost:4040/api/tunnels"
+        tunnels = requests.get(url).json()
+        public_url = tunnels['tunnels'][0]['public_url']
+        return public_url
+    except Exception as e:
+        print("Error fetching ngrok URL:", e)
+        return None
+
+# Get ngrok URL
+public_url = get_ngrok_url()
+print("Ngrok URL:", public_url)
 
 # Run Flask app
 if __name__ == "__main__":
