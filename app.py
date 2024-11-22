@@ -4,13 +4,13 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 import os
 import pandas as pd
-from flask_ngrok import run_with_ngrok
+import subprocess
 
 # Inisialisasi aplikasi Flask
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'  # Folder untuk menyimpan file upload
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-run_with_ngrok(app)  # Add this line
+
 # Buat folder uploads jika belum ada
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -97,5 +97,9 @@ def predict():
 
     return jsonify({'error': 'File upload failed'}), 400
 
-if __name__ == '__main__':
-    app.run()
+# Start ngrok in a subprocess
+subprocess.Popen(["ngrok", "http", "5000"])
+
+# Run Flask app
+if __name__ == "__main__":
+    app.run(port=5000)
