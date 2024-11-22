@@ -5,7 +5,6 @@ from tensorflow.keras.models import load_model
 import os
 import pandas as pd
 from flask_ngrok import run_with_ngrok
-from transformers import AutoTokenizer, AutoModel
 
 # Inisialisasi aplikasi Flask
 app = Flask(__name__)
@@ -39,15 +38,9 @@ class ImagePreprocessor:
 # Membuat instance dari ImagePreprocessor
 preprocessor = ImagePreprocessor(target_size=128, crop_size=128)
 
-# Replace 'username/repo_name' with your Hugging Face model repository
-model_name = "blogmilx/fingerprint"
-
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModel.from_pretrained(model_name)
-
 # Muat model dan personality dataframe
-# model = load_model('https://huggingface.co/blogmilx/fingerprint/resolve/main/model.h5')  # Ganti dengan path ke file model Anda
-personality_df = pd.read_csv('https://huggingface.co/datasets/blogmilx/fingerprint/raw/main/personality.csv')  # Pastikan file personality.csv tersedia
+model = load_model('model/model.h5')  # Ganti dengan path ke file model Anda
+personality_df = pd.read_csv('model/personality.csv')  # Pastikan file personality.csv tersedia
 
 # Buat dictionary untuk mapping id ke target dan deskripsi
 id_to_target = pd.Series(personality_df.target.values, index=personality_df.id).to_dict()
