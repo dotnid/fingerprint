@@ -6,9 +6,6 @@ import os
 import pandas as pd
 from flask_ngrok import run_with_ngrok
 
-# Replace YOUR_AUTHTOKEN with your actual ngrok authtoken
-os.system('ngrok authtoken 2bMeQV0gd5eBwdqiqX2dNva7zqO_4DbQpt6SkdXohy6EUdkBT')
-
 # Inisialisasi aplikasi Flask
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'  # Folder untuk menyimpan file upload
